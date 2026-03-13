@@ -10,8 +10,9 @@ namespace c_sharp_fiddle
 
     internal class FileUploader(ILogger logger)
     {
-        private readonly string inputDirectory = "D:\\Projects\\c-sharp-fiddle\\c-sharp-fiddle\\input";
-        private readonly string outputDirectory = "D:\\Projects\\c-sharp-fiddle\\c-sharp-fiddle\\output";
+        private static readonly string ProjectDir = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+        private readonly string inputDirectory = Path.Combine(ProjectDir, "input");
+        private readonly string outputDirectory = Path.Combine(ProjectDir, "output");
         private const int ChunkSize = 1024 * 1024; // 1 MB
         private const int BatchSize = 10;
         private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };

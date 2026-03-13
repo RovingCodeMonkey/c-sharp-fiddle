@@ -42,8 +42,8 @@ namespace c_sharp_fiddle
             // Task.WaitAll([lrt.Execute(5), lrt2.Execute(10)]);
 
             var fileUploader = new FileUploader(logger);
-            var inputFilePath = "09. Dj Tiesto - Just Be.mp3";
-            //var result = Task.WhenAll(fileUploader.UploadFile(inputFilePath));
+            var inputFilePath = "sample.mp3";
+            var result = Task.WhenAll(fileUploader.UploadFile(inputFilePath));
             Thread.Sleep(10000);
             var reAssemble = Task.WhenAll(fileUploader.ReassembleFile(inputFilePath));
             var fixChunks = Task.WhenAll(fileUploader.RegenerateChunks(inputFilePath, reAssemble.Result[0]));
